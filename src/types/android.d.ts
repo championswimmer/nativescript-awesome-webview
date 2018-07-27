@@ -26,7 +26,8 @@ declare module android {
       }
 
       export class CustomTabsServiceConnection {
-        constructor(implementation: ICustomTabsServiceConnection);
+        constructor();
+        static extend<T extends typeof CustomTabsServiceConnection>(implementation: ICustomTabsServiceConnection): T;
       }
 
       export class CustomTabsSession {}

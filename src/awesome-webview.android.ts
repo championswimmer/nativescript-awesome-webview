@@ -14,7 +14,7 @@ const context = () => app.android.startActivity || app.android.context;
 
 export function init(): void {
 
-  mCustomTabsServiceConnection = new CustomTabsServiceConnection({
+  mCustomTabsServiceConnection = new (CustomTabsServiceConnection.extend({
     onCustomTabsServiceConnected: function (name: android.content.ComponentName, client: CustomTabsClient) {
       mCustomTabsClient = client;
       mCustomTabsClient.warmup(long(0));
@@ -23,7 +23,7 @@ export function init(): void {
     onServiceDisconnected (name: android.content.ComponentName) {
       mCustomTabsClient = null;
     }
-  });
+  }))();
 
   CustomTabsClient.bindCustomTabsService(context(), CUSTOM_TAB_PACKAGE_NAME, mCustomTabsServiceConnection);
 }
