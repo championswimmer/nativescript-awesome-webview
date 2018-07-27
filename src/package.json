@@ -1,6 +1,6 @@
 {
     "name": "nativescript-awesome-webview",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Your awesome NativeScript plugin.",
     "main": "awesome-webview",
     "typings": "index.d.ts",
@@ -32,7 +32,13 @@
         "NativeScript",
         "JavaScript",
         "Android",
-        "iOS"
+        "iOS",
+        "WebView",
+        "Awesome",
+        "Customtabs",
+        "Chrome",
+        "Safari",
+        "SafariViewController"
     ],
     "author": {
         "name": "Arnav Gupta",
