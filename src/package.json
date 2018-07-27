@@ -1,7 +1,7 @@
 {
     "name": "nativescript-awesome-webview",
-    "version": "0.1.0",
-    "description": "Your awesome NativeScript plugin.",
+    "version": "0.1.1",
+    "description": "Awesome WebViews for all NativeScript Apps!",
     "main": "awesome-webview",
     "typings": "index.d.ts",
     "nativescript": {

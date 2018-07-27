@@ -1,40 +1,84 @@
-# Your Plugin Name
+# nativescript-awesome-webview
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
+<!-- badges here -->
 
-Then describe what's the purpose of your plugin. 
+A WebView plugin for NativeScript {N} that uses **Chrome Custom Tabs** in _Android_ and **SFSafariViewController** in _iOS_. 
+It is _**awesome**_ because now you can use the system's default browser, letting people maintain active logins 
+across websites (instead of having to freshly login to sites in the scope of your app's webview). Which means the custom tabs
+(or safari view) loads really fast! Also you can set the color of the title bar and controls of the custom tab / safari view. 
 
-In case you develop UI plugin, this is where you can add some screenshots.
+<!-- screenshots here -->
 
-## (Optional) Prerequisites / Requirements
+## Prerequisites / Requirements
 
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+As of now, there aren't any prerequisites. This should work with any device, any OS. 
 
 ## Installation
 
-Describe your plugin installation steps. Ideally it would be something like:
+For `tns` projects (Angular, Typescript, Javascript)
 
-```javascript
-tns plugin add <your-plugin-name>
+```shell
+tns plugin add nativescript-awesome-webview
+```
+
+For `vue-cli` projects (Nativescript-Vue)
+
+```shell
+npm install nativescript-awesome-webview
 ```
 
 ## Usage 
 
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
-	
-	```javascript
-    Usage code snippets here
-    ```)
+### Require
 
-## API
+Javascript - 
 
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
+```javascript
+const {init, openWebView} = require('nativescript-awesome-webview');
+```
+
+Typescript - 
+
+```typescript
+import {init, openWebView} from 'nativescript-awesome-webview';
+```
+
+### 1. Initialise (optional, only Android) 
+
+```javascript
+init()
+```
+
+_NOTE: This warms up the Chrome Custom Tab on Android
+For details [check this](https://developer.chrome.com/multidevice/android/customtabs#warm-up%20chrome%20to%20make%20pages%20load%20faster)_
+
+Calling `init()` does nothing on iOS. So if you're making for both OS, calling the function doesn't hurt in iOS. 
+
+### 2. Open an URL
+
+```typescript
+    openWebView({
+      url: 'http://google.com',
+      toolbarColor: '#2277aa',
+      toolbarControlsColor: '#eebb99'
+    });
+```
+
+## openWebView options
+
+`AwesomeWebviewOptions` structure (the object you pass into `openWebView`)
     
 | Property | Default | Description |
 | --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
+| url | **required** | The URL to open |
+| showTitle | false | Shows title bar in the webview |
+| toolbarColor | undefined | Color of the toolbar |
+| toolbarControlsColor | undefined | (only iOS) color of buttons on toolbar |
+| isClosed | undefined | callback function that will be called when webview is closed |
     
 ## License
 
-Apache License Version 2.0, January 2004
+This is free, open source and do-whatever-you-want-ware. I really don't care. 
+But if you need an official license - 
+
+	Apache License Version 2.0, January 2004
