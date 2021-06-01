@@ -1,6 +1,6 @@
 import { AwesomeWebviewOptions } from './awesome-webview.common';
-import {Color} from 'tns-core-modules/color';
-import * as utils from 'tns-core-modules/utils/utils';
+import {Color} from '@nativescript/core/color';
+import * as utils from '@nativescript/core/utils/utils';
 
 class SFSafariViewControllerDelegateImpl extends NSObject implements SFSafariViewControllerDelegate {
   public static ObjCProtocols = [SFSafariViewControllerDelegate];
